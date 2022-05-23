@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: node-ingress2
+spec:
+  rules:
+  - host: getvirus.net
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: node-app
+            port:
+              number: 3000
+  ingressClassName: nginx
