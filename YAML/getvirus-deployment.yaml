@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: getvirus-deployment
+  labels:
+    app: getvirus
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: getvirus
+  template:
+    metadata:
+      labels:
+        app: getvirus
+    spec:
+      containers:
+      - name: getvirus
+        image: sealouce/node-hello-app:v0.1
+        ports:
+        - containerPort: 3000
